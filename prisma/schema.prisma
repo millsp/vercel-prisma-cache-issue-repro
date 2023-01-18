@@ -1,0 +1,16 @@
+// Like, postgresql://user:password@localhost:5432/database/schema
+datasource db {
+  provider = "postgresql"
+  url      = "<your connection string>"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id    String  @default(cuid()) @id
+  email String  @unique
+  nick  String
+  // name String?
+}
